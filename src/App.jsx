@@ -1,11 +1,15 @@
+import { BrowserRouter } from 'react-router-dom'
 import './App.css'
+import Navbar from './components/Navbar'
+import RoutesIndex from './routes/Index'
 
 function App () {
   return (
     <div className='App'>
-
-      <h1>Vite + React</h1>
-
+      <BrowserRouter>
+        <Navbar />
+        <RoutesIndex />
+      </BrowserRouter>
     </div>
   )
 }
