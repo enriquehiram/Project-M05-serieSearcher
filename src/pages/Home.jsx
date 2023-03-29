@@ -6,11 +6,11 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+    fetch('https://api.tvmaze.com/shows')
       .then(response => response.json())
       .then(data => {
-        console.log(data.results)
-        setPokemons(data.results)
+        console.log(data)
+        setPokemons(data)
       }).catch(error => {
         console.log(error)
       })
@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <>
       <div className='container'>
-        <h1>Pokédex</h1>
+        <h1> </h1>
 
         <form className='form-inline my-2 my-lg-0 w-75'>
           <input type='text' className='form-control' id='search' placeholder='Enter name' value={searchTerm} onChange={handleSearch} />
@@ -37,7 +37,7 @@ const Home = () => {
           {filteredPokemons.map(pokemon => (
             <div className='col-sm-4 mb-4' key={pokemon.name}>
               <div className='card'>
-                <img className='card-img-top' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split('/').slice(-2)[0]}.png`} alt={pokemon.name} />
+                <img className='card-img-top' src={pokemon.image.medium} alt={pokemon.name} />
                 <div className='card-body'>
                   <Link to={`/pokemon/${pokemon.url.split('/').slice(-2)[0]}`}>
                     <h4 className='card-title'>{pokemon.name}</h4>
