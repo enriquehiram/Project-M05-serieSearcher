@@ -30,7 +30,14 @@ const Home = () => {
         <h1> </h1>
 
         <form className='form-inline my-2 my-lg-0 w-75'>
-          <input type='text' className='form-control' id='search' placeholder='Enter name' value={searchTerm} onChange={handleSearch} />
+          <input
+            type='text'
+            className='form-control'
+            id='search'
+            placeholder='Enter name'
+            value={searchTerm}
+            onChange={handleSearch}
+          />
         </form>
 
         <div className='row'>
